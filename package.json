@@ -4,10 +4,15 @@
   "description": "Xablau",
   "main": "cdc.js",
   "dependencies": {
+    "ejs": "^2.5.7",
     "express": "^4.16.2"
   },
-  "devDependencies": {},
+  "devDependencies": {
+    "nodemon": "^1.14.10"
+  },
   "scripts": {
+    "start": "node cdc.js",
+    "dev": "./node_modules/.bin/nodemon cdc.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Alunos do js-35",
