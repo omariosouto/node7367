@@ -3,6 +3,10 @@ const express = require('express')
 const app = express()
 app.set('view engine', 'ejs')
 
+// Middleware / Interceptador
+app.use(express.static('./public'))
+
+
 // 2 - Rotas
 const rotaProdutos = require('./routes/produtos.js')
 rotaProdutos(app)
