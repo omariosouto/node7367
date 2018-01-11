@@ -64,3 +64,14 @@ http://latentflip.com/loupe/?code=ZnVuY3Rpb24gbXVsdGlwbGljYXIobjEsIG4yKSB7CiAgIC
 
 Motivos pra surigr o NodeJS:
 https://www.youtube.com/watch?v=ztspvPYybIY
+
+
+        // 1- Faz a conexão com o Banco
+        // 2 - Faz a query
+        // 3 - Baixa os arquivos desse link: 
+        // https://github.com/MarcoBrunoBR/arquivos-js35/
+        // 4 - Cola na pasta do seu projeto
+        // 5 - Faz os itens aparecerem
+        // 6 - Configura arquivos estáticos
+        // Middleware / Interceptador
+            // app.use(express.static('./public'))
