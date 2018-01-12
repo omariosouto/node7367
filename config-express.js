@@ -1,18 +1,29 @@
 // Config, vai pro config-express.js
 const express = require('express')
 const bodyParser = require('body-parser')
+const expressValidator = require('express-validator')
+const load = require('express-load')
 const app = express()
 app.set('view engine', 'ejs')
 
 // 1- Config  Middleware / Interceptador
 app.use(express.static('./public'))
 app.use(bodyParser.urlencoded({ extended: true }))
+app.use(expressValidator())
 
 // 2 - Rotas
-const rotaProdutos = require('./routes/produtos.js')
-rotaProdutos(app)
+load('routes')
+    .then('infra')
+    .into(app)
 
-require('./routes/home')(app)
+console.log(app.infra)
+
+    // require(cada_arquivo)(app)
+
+// const rotaProdutos = require('./routes/produtos.js')
+// rotaProdutos(app)
+
+// require('./routes/home')(app)
 
 // 3 - Erros Middleware de Tratamento de Erro
 app.use(function(req, res, next) {

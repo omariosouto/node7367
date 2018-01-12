@@ -18,4 +18,13 @@ function connectionFactory() {
 //     database: 'casadelcodigo'
 // })
 
-module.exports = connectionFactory
+
+// module.exports = function() {
+//     return connectionFactory
+// }
+// module.exports = () => {
+//     return connectionFactory
+// }
+module.exports = () => connectionFactory
+// Quando que eu uso arrow function?
+// Sempre que você nao depender do this

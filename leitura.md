@@ -75,3 +75,21 @@ https://www.youtube.com/watch?v=ztspvPYybIY
         // 6 - Configura arquivos estáticos
         // Middleware / Interceptador
             // app.use(express.static('./public'))
+
+
+
+# Cap 4
+
+O que precisamos pra cadastrar um produto?
+
+- Rotas
+- Pagina/View
+- Formulário
+
+
+Quando clicar no gravar, o que acontece? 
+
+- Faz um post : CHECK
+- pegar os parametros, da requisição, onde? 
+- Criar o método salvar
+- Insere no banco : 

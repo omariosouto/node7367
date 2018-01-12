@@ -1,11 +1,11 @@
 // Importação de libs
 const ProdutosDAO = require('../dao/ProdutosDAO.js')
-const connectionFactory = require('../infra/connectionFactory')
+// const connectionFactory = require('../infra/connectionFactory')
 
 module.exports = function (app) {
 
     app.get('/produtos', function(req, res) {
-        const connection = connectionFactory()
+        const connection = app.infra.connectionFactory()
         const produtosDAO = new ProdutosDAO(connection)
 
         produtosDAO.lista(function(err, result) {
@@ -24,13 +24,25 @@ module.exports = function (app) {
     app.post('/produtos', function(req, res) {
         const connection = connectionFactory()
         const produtosDAO = new ProdutosDAO(connection)
-
-        // Pra Salvar um produto
+        // Pega o produto
         const produto = req.body
+        
+        // Faz as validações
+        req.assert('titulo', 'Titulo é obrigatório!').notEmpty()
+        req.assert('preco', 'Preço deve ser um numero').isFloat()
 
-        produtosDAO.salva(produto, function(err) {
-            res.send(produto)
-        })
+        const errors = req.validationErrors()
+
+        if(!errors) {
+            // Sem erros por aqui
+            produtosDAO.salva(produto, function(err) {
+                res.redirect('/produtos')
+            })
+        } else {
+            // Com erros, por aqui
+            res.send(errors)
+            // res.render('produtos/form')
+        }
 
     })
 
