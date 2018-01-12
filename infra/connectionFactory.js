@@ -10,6 +10,7 @@ function connectionFactory() {
     })
 
 }
+module.exports = () => connectionFactory
 
 // const connection = mysql.createConnection({
 //     host: 'localhost',
@@ -25,6 +26,6 @@ function connectionFactory() {
 // module.exports = () => {
 //     return connectionFactory
 // }
-module.exports = () => connectionFactory
+
 // Quando que eu uso arrow function?
-// Sempre que você nao depender do this
+// Sempre que você nao depender do this``
